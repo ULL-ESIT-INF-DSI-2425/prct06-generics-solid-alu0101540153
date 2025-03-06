@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tsc-watch --onSuccess \"node dist/basicFunctions.js\"",
     "e1": "tsc-watch --onSuccess \"node dist/ejercicio-1/index.js\"",
-    "e2": "tsc-watch --onSuccess \"node dist/ejercicio-2/main.js\"",
+    "e2": "tsc-watch --onSuccess \"node dist/ejercicio-2/index.js\"",
     "doc": "typedoc",
     "test": "vitest run",
     "coverage": "vitest run --watch --coverage --coverage.include src//*.ts"
