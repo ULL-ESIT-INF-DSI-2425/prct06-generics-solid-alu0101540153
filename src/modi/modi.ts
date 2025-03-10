@@ -106,5 +106,41 @@ export class GenericList<T> {
         return listamapeada;
     }
 
+    /**
+     * dada una lista, una función y un acumulador inicial, reduce cada elemento al acumulador utilizando la función.
+     * @param funcion - fucnion pa q se reduzca
+     * @param accinicial -reduce cada elemento al acumulador utilizando la función.
+     * @returns lista reducida
+     */
+    reduce<U>(funcion: (accu: U, item: T) => U, accinicial: U): U {
+        let accumulator = accinicial;
+        for (let i = 0; i < this.length(); i++) {
+            accumulator = funcion(accumulator, this.items[i]);
+        }
+        return accumulator;
+    }
+
+    /**
+     *  dada una lista, retorna una lista con los elementos originales pero en orden inverso.
+     * @returns retorna una lista con los elementos originales pero en orden inverso.
+     */
+    reverse(): GenericList<T> {
+        const reversedList = new GenericList<T>();
+        for (let i = this.length() - 1; i >= 0; i--) {
+            reversedList.push(this.items[i]);
+        }
+        return reversedList;
+    }
+
+    
+    /**
+     *  dada una lista y una función, permite iterar en los elementos de la lista e invocar la función con cada uno de ellos.
+     * @param funcion - funcion inline pa cambiar cada uhno
+     */
+    forEach(funcion: (item: T) => void): void {
+        for (let i = 0; i < this.length(); i++) {
+            funcion(this.items[i]);
+        }
+    }
 
 }

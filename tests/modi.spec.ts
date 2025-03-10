@@ -10,12 +10,23 @@ describe("prueba del gets", () => {
     const lista1 = new GenericList<number>();
     lista1.set([8,8,8,7,7,7]);
 
+    const lista2 = new GenericList<number>();
+    lista2.set([1,2,3,4,5]);
+
   test("prueba del get", () => {
     expect(lista.get(2)).toBe(3);
+  });
+  
+  test("prueba del get", () => {
+    expect(lista1.get(3)).toBe(7);
   });
 
   test("prueba del getAll", () => {
     expect(lista.getAll()).toStrictEqual([1,2,3,4,5,6,7,8,9]);
+  });
+
+  test("prueba del getAll", () => {
+    expect(lista2.getAll()).toStrictEqual([1,2,3,4,5]);
   });
 
 
@@ -46,6 +57,14 @@ describe("prueba del gets", () => {
     expect(listaVacia.length()).toBe(1); 
   });
 
+  test("prueba del push, añade un elemento negativo", () => {
+    const listaVacia = new GenericList<number>();
+    listaVacia.push(-100);
+    expect(listaVacia.get(0)).toBe(-100); 
+    expect(listaVacia.length()).toBe(1); 
+  });
+
+
   test("prueba para el filter, con una funcion inline", () => {
     const result = lista.filter(item => item > 7);
     expect(result.getAll()).toStrictEqual([8,9,8,8,8]); 
@@ -56,6 +75,47 @@ describe("prueba del gets", () => {
     expect(result.length()).toBe(6); 
     expect(result.getAll()).toStrictEqual([16,16,16,14,14,14]); 
 
+  });
+
+  test("prueba pal reduce, que transforma en string", () => {
+    const result = lista2.reduce((acc, item) => acc + item.toString(), "");
+    expect(result).toBe("12345"); 
+  });
+
+  test("pruebas pal reverse", () => {
+    const reversed = lista2.reverse();
+    expect(reversed.getAll()).toStrictEqual([5,4,3,2,1]);
+  });
+
+  test("pruebas pal reverse", () => {
+    const reversed = lista1.reverse();
+    expect(reversed.getAll()).toStrictEqual([7,7,7,8,8,8]);
+  });
+
+  test("pruebas para el foreach", () => {
+    const lista3 = new GenericList<number>();
+    lista3.set([1, 2, 3]);
+
+    let total:number = 0;
+
+    lista3.forEach((item) => {
+        total += item;
+    });
+
+    expect(total).toBe(6);
+  });
+
+  test("pruebas para el foreach", () => {
+    const lista3 = new GenericList<number>();
+    lista3.set([1, 2, 3]);
+
+    let total:number = 1;
+
+    lista3.forEach((item) => {
+        total *= item;
+    });
+
+    expect(total).toBe(6);
   });
 
 
