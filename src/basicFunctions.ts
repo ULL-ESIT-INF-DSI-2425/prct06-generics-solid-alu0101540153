@@ -40,3 +40,8 @@ export function div(firstNumber: number, secondNumber: number): number {
   }
   return firstNumber / secondNumber;
 }
+
+
+
+//=======================================
+
