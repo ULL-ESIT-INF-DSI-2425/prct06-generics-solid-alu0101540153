@@ -6,7 +6,7 @@ import { WeatherStation } from './WeatherStation.js';
  * Recibe las actualizaciones de la estación meteorológica.
  */
 export class PanelDevice implements Observer {
-  constructor(private id: number, private name: string) {}
+  constructor(private id: number, private name: string) {} 
 
       /**
    *  getter
