@@ -10,7 +10,7 @@ export class PanelDevice implements Observer {
 
       /**
    *  getter
-   * @returns id
+   * @returns id  
    */
   getId() {
     return this.id;
