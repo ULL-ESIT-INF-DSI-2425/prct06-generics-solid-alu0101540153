@@ -1,12 +1,14 @@
 {
   "name": "ejercicios",
   "version": "1.0.0",
+  "type": "module",
   "main": "basicFunctions.js",
   "scripts": {
     "dev": "tsc-watch --onSuccess \"node dist/basicFunctions.js\"",
     "e1": "tsc-watch --onSuccess \"node dist/ejercicio-1/index.js\"",
     "e2": "tsc-watch --onSuccess \"node dist/ejercicio-2/index.js\"",
     "e3": "tsc-watch --onSuccess \"node dist/ejercicio-3/fileManager.js\"",
+    "modi": "tsc-watch --onSuccess \"node dist/MODI_P7/index.js\"",
     "doc": "typedoc",
     "test": "vitest run",
     "coverage": "vitest run --watch --coverage --coverage.include src//*.ts"
